@@ -58,6 +58,7 @@ router.route('/bears')
 		
 		var bear = new Bear();		// create a new instance of the Bear model
 		bear.name = req.body.name;  // set the bears name (comes from the request)
+                bear.park = req.body.park;  // set the bears name (comes from the request)
 
 		bear.save(function(err) {
 			if (err)
@@ -100,6 +101,7 @@ router.route('/bears/:bear_id')
 				res.send(err);
 
 			bear.name = req.body.name;
+			bear.parkk = req.body.park;
 			bear.save(function(err) {
 				if (err)
 					res.send(err);

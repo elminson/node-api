@@ -1,5 +1,7 @@
 // BASE SETUP
 // =============================================================================
+// REGISTER OUR ROUTES -------------------------------
+// base path app.use('/api', router);
 
 // call the packages we need
 var express    = require('express');
@@ -18,7 +20,7 @@ var port     = process.env.PORT || 8080; // set our port
 
 // DATABASE SETUP
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
+mongoose.connect('mongodb://myUserAdmin:abc123@localhost:27017'); // connect to our database
 
 // Handle the connection event
 var db = mongoose.connection;
@@ -101,7 +103,7 @@ router.route('/bears/:bear_id')
 				res.send(err);
 
 			bear.name = req.body.name;
-			bear.parkk = req.body.park;
+			bear.park = req.body.park;
 			bear.save(function(err) {
 				if (err)
 					res.send(err);
